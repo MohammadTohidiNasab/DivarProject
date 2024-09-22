@@ -1,7 +1,14 @@
+using DivarProject.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var cnnString = builder.Configuration.GetConnectionString("DivarConnection");
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AdvertisementDbContext>(options => options.UseSqlServer(cnnString));
+
 
 var app = builder.Build();
 
