@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Project3.Models.Advertisement>
+
+<h2>لیست آگهی‌ها</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>عنوان</th>
+            <th>توضیحات</th>
+            <th>قیمت</th>
+            <th>عکس</th>
+            <th>نام کاربر</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ad in Model)
+        {
+            <tr>
+                <td>@ad.Title</td>
+                <td>@ad.Description</td>
+                <td>@ad.Price</td>
+                <td><img src="@ad.ImageUrl" alt="عکس آگهی" width="100" /></td>
+                <td>@ad.User.FirstName @ad.User.LastName</td>
+            </tr>
+        }
+    </tbody>
+</table>
